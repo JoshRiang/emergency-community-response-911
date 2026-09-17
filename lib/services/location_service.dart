@@ -18,10 +18,7 @@ class LocationService {
     final ok = await ensurePermission();
     if (!ok) return null;
     return Geolocator.getCurrentPosition(
-      locationSettings: const LocationSettings(
-        accuracy: LocationAccuracy.high,
-      ),
-    );
+        desiredAccuracy: LocationAccuracy.high);
   }
 
   Stream<Position> positionStream() {
